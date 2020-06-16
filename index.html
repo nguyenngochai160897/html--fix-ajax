@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    
+<button>click</button>
+<div class="divClass"><input type="text" class="datepicker"></div>
+<script>
+    $("button").on("click", function(){
+        $.get("http://0.0.0.0:8080/", function(data, status){
+            $("div").html(data);
+            $('.divClass').load('/', function() { // Load external content
+                $('.datepicker').datepicker(); // The initialise new datepicker
+            });
+        });
+    });
+    
+
+    
+</script>
+
+</body>
+</html>
